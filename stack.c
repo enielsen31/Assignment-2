@@ -5,8 +5,8 @@
  * might need.  Also, don't forget to include your name and @oregonstate.edu
  * email address below.
  *
- * Name:
- * Email:
+ * Name: Ejner Nielsen
+ * Email: nielseej@oregonstate.edu
  */
 
 #include <stdlib.h>
@@ -40,7 +40,7 @@ struct stack* stack_create() {
         return NULL;  // Return NULL if memory allocation failed
     }
 
-    // Allocate and initialize the list (assuming a list_create function exists)
+    // Allocate and initialize the list when a list_create function exists
     new_stack->list = list_create();  // Initialize the list as an empty list
 
     // Return the newly created stack
@@ -103,23 +103,7 @@ void stack_push(struct stack* stack, void* val) {
          * FIXME:
          */
         list_insert(stack->list, val);
-
-        // Create a new node
-    //struct node* new_node = malloc(sizeof(struct node));
-
-    // Check for memory allocation failure
-   // if (new_node == NULL) {
- //       return;  // Return if memory allocation failed (out of memory)
-    }
-
-    // Set the value of the new node
-  //  new_node->val = val;
-
-    // Set the new node's next pointer to the current head of the list
-//    new_node->next = stack->list->head;
-
-    // Update the head of the list to point to the new node
-//    stack->list->head = new_node;
+  
         return;
 }
 
@@ -136,13 +120,7 @@ void* stack_top(struct stack* stack) {
          * FIXME:
          */
         return value_head(stack->list);
-         // Check if the stack is empty
- //   if (stack->list->head == NULL) {
-   //     return NULL;  // Return NULL if the stack is empty
-    }
-
-    // Return the value stored at the top of the stack (head of the list)
-   // return stack->list->head->val;
+  
         return NULL;
 }
 
@@ -160,25 +138,9 @@ void* stack_pop(struct stack* stack) {
         /*
          * FIXME:
          */
-return list_remove_val(stack->list);
+return remove_val(stack->list);
         // Check if the stack is empty
   //  if (stack->list->head == NULL) {
-  //      return NULL;  // Return NULL if the stack is empty
-    }
-
-    // Store the value of the top node
-  //  void* top_value = stack->list->head->val;
-
-    // Save the current top node to free later
-   // struct node* old_top = stack->list->head;
-
-    // Update the head to the next node in the stack
- //   stack->list->head = stack->list->head->next;
-
-    // Free the memory of the old top node
-  //  free(old_top);
-
-    // Return the value that was popped
-//    return top_value;
         return NULL;
 }
+~     
