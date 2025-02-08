@@ -88,6 +88,12 @@ int list_empty(struct list* list){
         }
         return 0;
 }
+
+void* value_head(struct list* list){
+        // returns the first value of the list
+        return list->head->val;
+
+}
 /*
  * This function removes an element with a specified value from a given
  * linked list.  If the specified value appears multiple times in the list,
