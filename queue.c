@@ -1,6 +1,6 @@
  *
- * Name:
- * Email:
+ * Name: Ejner Nielsen
+ * Email: nielseej@oregonstate.edu 
  */
 
 #include <stdlib.h>
@@ -37,7 +37,7 @@ struct queue* queue_create() {
         return NULL;  // Return NULL if memory allocation failed
     }
 
-    // Create and initialize the dynamic array (assuming a function like dynarray_create)
+    // Create and initialize the dynamic array 
     new_queue->array = dynarray_create();
 
     // Return the newly created queue
@@ -59,13 +59,13 @@ void queue_free(struct queue* queue) {
          */
         // Check if the queue is not NULL
         if (queue == NULL) {
-        return;  // If the queue is NULL, there's nothing to free
+        return;  
     }
 
-    // Free the dynamic array associated with the queue
+    // Frees the dynamic array associated with the queue
     dynarray_free(queue->array);
 
-    // Free the memory allocated for the queue structure itself
+    // Frees the memory allocated for the queue structure itself
     free(queue);
 }
 
@@ -82,8 +82,7 @@ int queue_isempty(struct queue* queue) {
          * FIXME:
          */
             // Check if the dynamic array is empty
-    return dynarray_size(queue->array) == 0;  // Return 1 if empty, 0 otherwise
-
+    return dynarray_size(queue->array) == 0;  // Return 1 if empty, otherwise 0 return 
 }
 
 /*
@@ -118,14 +117,14 @@ void* queue_front(struct queue* queue) {
          */
              // Check if the queue is empty
     if (queue_isempty(queue)) {
-        return NULL;  // Return NULL if the queue is empty
+        return NULL;  // Return NULL when the queue is empty 
     }
 
     // Return the value stored at the front of the queue (first element in the array)
     return dynarray_get(queue->array, 0);
         // Check if the queue is empty
         /*
-    return queue->array->data[0];  // Access the first element of the array
+    return queue->array->data[0];  // Accesses the first element of the array
     */
 }
 
@@ -144,15 +143,15 @@ void* queue_dequeue(struct queue* queue) {
          * FIXME:
          */
             if (queue_isempty(queue)) {
-        return NULL;  // Return NULL if the queue is empty
+        return NULL;  // Return NULL when the queue is empty
     }
 
-    // Store the front value (the first element in the dynamic array)
+    // Store the first element in the dynamic array
     void* front_value = dynarray_get(queue->array, 0);
 
     // Remove the front element from the dynamic array
     dynarray_remove(queue->array, 0);
 
-    // Return the dequeued value
+    // Returns the dequeued value
     return front_value;
 }
